@@ -1,0 +1,26 @@
+{
+  "name": "home-iot",
+  "version": "1.0.0",
+  "description": "Small DIY IoT project for Home Automation. Based on Arduino, ESP8266 with temperature and humidity sensor and electrical relay.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://dmilkovski@bitbucket.org/dmilkovski/home-iot.git"
+  },
+  "keywords": [
+    "esp8266",
+    "arduino",
+    "IoT",
+    "home",
+    "automation",
+    "nodejs",
+    "mongodb",
+    "socketio"
+  ],
+  "author": "Dimo Milkovski",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/dmilkovski/home-iot#readme"
+}

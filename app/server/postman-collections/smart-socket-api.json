@@ -1,0 +1,471 @@
+{
+	"info": {
+		"_postman_id": "43662207-9330-4b5c-b84f-6c4fe6ee3d34",
+		"name": "Smart-Socket",
+		"description": "CRUD oprations and listing users API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get-All-Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/api/resource/users?page=1&limit=2",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						},
+						"description": "Show all existing users"
+					},
+					"response": []
+				},
+				{
+					"name": "Get-User-By-Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/api/resource/users/5b9bae2674bd552f6ce7f7cf",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"users",
+								"5b9bae2674bd552f6ce7f7cf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create-User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"dimo\",\n\t\"password\": \"dimo123\",\n\t\"email\": \"dimo@smart-socket.com\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/api/resource/users/",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit-User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Token",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\": \"test123\",\n\t\"isAdmin\": true\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/api/resource/users/5b2fb760a248664d7edb9f3f",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"users",
+								"5b2fb760a248664d7edb9f3f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/api/resource/users/5b2fa0000297163cd17ac7b5",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"users",
+								"5b2fa0000297163cd17ac7b5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignIn",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setGlobalVariable(\"token\", jsonData.token);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth-token",
+								"value": "Dsd934SDASdsadSADasDfggHTYGFBfsad",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"test\",\n\t\"password\": \"test123\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/api/auth",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Device",
+			"item": [
+				{
+					"name": "Get-All-Devices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Token",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://{{host}}/api/resource/devices",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"devices"
+							]
+						},
+						"description": "Get all devices from db"
+					},
+					"response": []
+				},
+				{
+					"name": "Create-Device",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"label\": \"Admin device\",\n\t\"token\": \"81dc9bdb52d04dc20036dbd8313ed056\"\n\t\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/api/resource/device",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"device"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update-Device",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Token",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"label\": \"Dimo's device\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/api/resource/device/5b9cc297c7f0b208b873d156",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"device",
+								"5b9cc297c7f0b208b873d156"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-Device",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Token",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{host}}/api/resource/device/5b9cc297c7f0b208b873d156",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"device",
+								"5b9cc297c7f0b208b873d156"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change-Device-Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Token",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\": 1\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/api/resource/device/status/81dc9bdb52d04dc20036dbd8313ed056",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"device",
+								"status",
+								"81dc9bdb52d04dc20036dbd8313ed056"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get-Device-Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Token",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\": \"0\"\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/api/resource/device/status/81dc9bdb52d04dc20036dbd8313ed055",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"device",
+								"status",
+								"81dc9bdb52d04dc20036dbd8313ed055"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store-Device-Sensor-Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Token",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\": 0\n}"
+						},
+						"url": {
+							"raw": "http://{{host}}/api/resource/device/status/81dc9bdb52d04dc20036dbd8313ed056",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"resource",
+								"device",
+								"status",
+								"81dc9bdb52d04dc20036dbd8313ed056"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

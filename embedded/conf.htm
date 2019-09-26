@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <title>SmartSocket - Configure</title>
+    <style>
+        body, html {margin: 0; padding: 0; width: 100%; height: 100%;}
+        h1 {
+            background: #43D1AF;
+            padding: 20px 0;
+            font-weight: 300;
+            text-align: center;
+            color: #fff;
+            margin: 0px 0 20px 0;
+        }
+        .field {
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        form {
+            width: 100%;
+            font: 95% Arial, Helvetica, sans-serif;
+            background: #F7F7F7;
+        }
+
+        input[type="text"] {
+            -webkit-transition: all 0.30s ease-in-out;
+            -moz-transition: all 0.30s ease-in-out;
+            -ms-transition: all 0.30s ease-in-out;
+            -o-transition: all 0.30s ease-in-out;
+            outline: none;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 100%;
+            background: #fff;
+            margin-bottom: 4%;
+            border: 1px solid #ccc;
+            padding: 3%;
+            color: #555;
+            font: 23px Arial, Helvetica, sans-serif;
+        }
+
+        .field > label {
+            font-size: 20px;
+            color: #242020;
+            padding: 10px
+        }
+
+        #submit, 
+        input[type="reset"] {
+            cursor: pointer;
+            float: left;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 50%;
+            font-size: 23px;
+            padding: 3% 0 3% 0;
+            background: #43D1AF;
+            border-bottom: 2px solid #30C29E;
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;
+            color: #fff;
+        }
+
+        .field::after{
+            display: block;
+            content: "";
+            clear: both;
+        }
+
+        input[type="reset"] {
+            background-color: #2a84da;
+            border-bottom: 2px solid #1b64a8;
+        }
+
+        .container{
+            height: 100%;
+            background-color: #a0a0a0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <h1>Smart-Socket Network Configuration</h1>
+            <div class="field">
+                <label for="ssid">SSID: </label>
+                <input id="ssid" placeholder="SSID" type="text" name="ssid" required />
+            </div>
+            <div class="field">
+                <label for="pass">SSID Password: </label>
+                <input id="pass" placeholder="SSID Password" type="text" name="pass" required />
+            </div>
+            <div class="field">
+                <label for="token">Device Token: </label>
+                <input id="token" placeholder="Device Token" type="text" name="token" required maxlength="32" pattern=".{32}" />
+            </div>
+            <div class="field">
+                <label for="server">Server address: </label>
+                <input id="server" placeholder="Server address" type="text" name="server" required />
+            </div>
+            <div class="field">
+                <label for="port">Server port number: </label>
+                <input id="port" placeholder="Server port number" type="text" name="port" required pattern="\d{1,5}"
+                    maxlength="5" />
+            </div>
+            <div class="field">
+                <button id="submit" onclick="submit"/>Save</button>
+                <input type="Reset" value="Reset" />
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
